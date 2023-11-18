@@ -13,6 +13,7 @@ test.describe('Tooltip page', () => {
     test('Tooltips Test', async ({ page }) => {
         const toolTipPlacementCard = page.locator('nb-card', { hasText: 'Tooltip Placements' })
         await toolTipPlacementCard.getByRole('button', { name: "Right" }).hover()
+        await toolTipPlacementCard.locator("")
 
         page.getByRole('tooltip') //if you have a role tooltip created
 

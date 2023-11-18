@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto(('http://localhost:4200'))
 })
 
-test.describe('Dialog page', () => {
+test.describe('Smart Table page', () => {
     test.beforeEach(async ({ page }) => {
         await page.getByText('Tables & Data').click()
         await page.getByText('Smart Table').click()
@@ -18,8 +18,6 @@ test.describe('Dialog page', () => {
         });
 
         await page.getByRole('table').locator('tr', { hasText: "mdo@gmail.com" }).locator('.nb-trash').click()
-        await page.pause()
-
-
+        await expect(page.locator('table tr').first()).not.toHaveText('mdo@gmail.com')
     })
 })

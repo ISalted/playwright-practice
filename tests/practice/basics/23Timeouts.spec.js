@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { exec } from 'child_process';
 
-test.only('timeout', async ({ page }) => {
+test('timeout', async ({ page }) => {
     /*  Global TimeOut - Time limit of the whole test run
         * We're changing this parameter in playwright.config.js, the variable 'Global Timeout'.
 
