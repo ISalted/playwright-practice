@@ -24,9 +24,7 @@ test.describe('Datepicker page', () => {
         const expectedMonthShort = date.toLocaleString('en-US', { month: 'short' });
         const expectedMonthLong = date.toLocaleString('en-US', { month: 'long' })
         const expectedYear = date.getFullYear()
-
         const dateToAssert = `${expectedMonthShort} ${expectDay}, ${expectedYear}`
-        console.log(dateToAssert)
 
         let calendarMonthAndYear = await page.locator('nb-calendar-view-mode').textContent()
         const expectedMonthAndYear = ` ${expectedMonthLong} ${expectedYear}`
@@ -34,8 +32,8 @@ test.describe('Datepicker page', () => {
             await page.locator('.next-month').click()
             calendarMonthAndYear = await page.locator('nb-calendar-view-mode').textContent()
         }
-
         await page.locator('.day-cell.ng-star-inserted').getByText(expectDay, { exact: true }).click()
+
         await expect(calendarInputField).toHaveValue(dateToAssert)
     })
 })

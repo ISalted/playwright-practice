@@ -4,7 +4,7 @@ import exp from 'constants';
 test.beforeEach(async ({ page }) => {
     await page.goto(('https://www.globalsqa.com/demo-site/draganddrop/'))
 })
-    test.only('Drag&Drop test', async ({ page }) => {
+    test('Drag&Drop test', async ({ page }) => {
         const frame = page.frameLocator('[rel-title="Photo Manager"] iframe')
         await frame.locator('li', { hasText:"High Tatras 2"}).dragTo(frame.locator('#trash'))
 
